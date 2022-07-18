@@ -18,6 +18,8 @@ var fiveEl = $("#5");
 
 //get current day from moment.js
 var currentDate = moment().format("[Today is] dddd, MMMM Do YYYY") 
+var currentTime = moment().format("h:mm:ss a");
+
 
 //jumbotron - show current day 
 document.getElementById("currentDay").innerHTML = currentDate;
@@ -41,21 +43,46 @@ $("#button .saveBtn").click(function(){
 //load saved events from local storage
 var loadEvents = function() {
     var getEvent9 = JSON.parse(localStorage.getItem("9:00 A.M."));
-    console.log(getEvent9);
-    $("input").val(getEvent9);
+    nineEl.val(getEvent9);
     var getEvent10 = JSON.parse(localStorage.getItem("10:00 A.M."));
+    tenEl.val(getEvent10);
     var getEvent11 = JSON.parse(localStorage.getItem("11:00 A.M."));
+    elevenEl.val(getEvent11);
     var getEvent12 = JSON.parse(localStorage.getItem("12:00 P.M."));
+    twelveEl.val(getEvent12);
     var getEvent1 = JSON.parse(localStorage.getItem("1:00 P.M."));
+    oneEl.val(getEvent1);
     var getEvent2 = JSON.parse(localStorage.getItem("2:00 P.M."));
+    twoEl.val(getEvent2);
     var getEvent3 = JSON.parse(localStorage.getItem("3:00 P.M."));
+    threeEl.val(getEvent3);
     var getEvent4 = JSON.parse(localStorage.getItem("4:00 P.M."));
+    fourEl.val(getEvent4);
     var getEvent5 = JSON.parse(localStorage.getItem("5:00 P.M."));
+    fiveEl.val(getEvent5);
 }
 
-
 //rows change color based on past/present/future time
-
+    //get the element for timeslot
+var auditTime = function() {
+    $(".input-group-append").each(function() {
+        var timeblockEl = parseInt($(this).attr("id"));
+    
+    // if time is greater than timeblockEl, then this is considered "past", therefore add class "past"
+    if (currentTime > timeblockEl) {
+        $(this).addClass("past");
+    }
+    
+    //else if time is less than timeblockEl, then this is considered the future, therefore add class "future"
+    else if (currentTime < timeblockEl) {
+        $(this).addClass("future");
+    }
+    //finally, else it is not less than, not greater than = present. add class "present"
+    else {
+        $(this).addClass("present");
+    }
+});
+  }
 
 
 $(document).ready(function() {
