@@ -20,18 +20,14 @@ document.getElementById("currentDay").innerHTML = currentDate;
 $("#button .saveBtn").click(function(){
     console.log("button was clicked");
     //once clicked, siblings method grabs input of form-control
-    $("input").on(function() {
-        var eventInput = $(this).val();
-        $("form-control").text(eventInput);
-        console.log(eventInput);
-    })
-    
-});
+   var eventInput = $(this).siblings(".form-control")
+   .val();
+   console.log(eventInput);
 //     // select text from form-control at hour of event
-//     var currentHour = $(this).siblings(".input-group-prepend").text().trim();
-//     //save to local storage
-//     localStorage.setItem(currentHour, JSON.stringify(eventInput));
-// });
+    var currentHour = $(this).siblings(".input-group-prepend").text().trim();
+    //save to local storage
+    console.log(currentHour);
+});
 
 //rows change color based on past/present/future time
 
