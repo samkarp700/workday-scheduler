@@ -8,9 +8,11 @@
 
 
 //get current day from moment.js
+var currentDate = moment().format("[Today is] dddd, MMMM Do YYYY") 
 
+console.log(currentDate);
 //jumbotron - show current day 
-
+document.getElementById("currentDay").innerHTML = currentDate;
 
 
 
