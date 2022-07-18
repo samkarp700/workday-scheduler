@@ -27,6 +27,7 @@ $("#button .saveBtn").click(function(){
     var currentHour = $(this).siblings(".input-group-prepend").text().trim();
     //save to local storage
     console.log(currentHour);
+    
 });
 
 //rows change color based on past/present/future time
