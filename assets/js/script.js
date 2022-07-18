@@ -10,10 +10,16 @@
 //get current day from moment.js
 var currentDate = moment().format("[Today is] dddd, MMMM Do YYYY") 
 
-console.log(currentDate);
 //jumbotron - show current day 
 document.getElementById("currentDay").innerHTML = currentDate;
 
+//get text from event input
+
+
+//save button saves event input to local storage
+
+
+//rows change color based on past/present/future time
 
 
 
