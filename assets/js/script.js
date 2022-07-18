@@ -5,6 +5,7 @@
 //save button saves event to local storage 
 //refreshed page - saved event displayed on the page. 
 
+//variables for time slots
 
 
 //get current day from moment.js
@@ -17,6 +18,7 @@ document.getElementById("currentDay").innerHTML = currentDate;
 
 
 //save button saves event input to local storage
+
 $("#button .saveBtn").click(function(){
     console.log("button was clicked");
     //once clicked, siblings method grabs input of form-control
@@ -24,11 +26,12 @@ $("#button .saveBtn").click(function(){
    .val();
    console.log(eventInput);
 //     // select text from form-control at hour of event
-    var currentHour = $(this).siblings(".input-group-prepend").text().trim();
+    var currentHour = $(this).parent().siblings(".input-group-prepend").text().trim();
     //save to local storage
     console.log(currentHour);
-    
+    localStorage.setItem(currentHour, JSON.stringify(eventInput));
 });
+
 
 //rows change color based on past/present/future time
 
