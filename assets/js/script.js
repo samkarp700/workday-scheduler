@@ -63,26 +63,15 @@ var loadEvents = function() {
 }
 
 //rows change color based on past/present/future time
-    //get the element for timeslot
-var auditTime = function() {
-    $(".input-group-append").each(function() {
-        var timeblockEl = parseInt($(this).attr("id"));
+    //get the element for timeslot 
     
-    // if time is greater than timeblockEl, then this is considered "past", therefore add class "past"
-    if (currentTime > timeblockEl) {
-        $(this).addClass("past");
-    }
+    // if time is greater than time block, then this is considered "past", therefore add class "past"
     
-    //else if time is less than timeblockEl, then this is considered the future, therefore add class "future"
-    else if (currentTime < timeblockEl) {
-        $(this).addClass("future");
-    }
-    //finally, else it is not less than, not greater than = present. add class "present"
-    else {
-        $(this).addClass("present");
-    }
-});
-  }
+    
+    //else if time is less than timeblock, then this is considered the future, therefore add class "future"
+
+    //finally, else if is not less than, not greater than = present. add class "present"
+
 
 
 $(document).ready(function() {
